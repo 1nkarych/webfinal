@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup - Bijouterie Boutique</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container header-flex">
+    <img src="images/logo.png" alt="Bijouterie Boutique Logo" style="width: 75px; height: 75px;">
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="auth.html" id="auth-link">Login</a></li>
+        <li><a href="profile.html" id="profile-link" style="display:none;">Profile</a></li>
+        <li><a href="#" id="logout-btn" style="display:none;">Logout</a></li>
+      </ul>
+    </nav>
+    <div class="theme-toggle">
+      <button id="theme-switcher">🌙</button>
+    </div>
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="images/video/login.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</header>
+
+<main>
+  <section class="auth-hero">
+    <div class="container">
+      <h1>Welcome Back</h1>
+      <p>Sign in to your account or create a new one to access exclusive features</p>
+    </div>
+  </section>
+
+  <section class="auth-section">
+    <div class="container">
+      <div class="auth-container">
+        <div class="auth-tabs">
+          <button class="tab-button active" data-tab="login">Login</button>
+          <button class="tab-button" data-tab="signup">Sign Up</button>
+        </div>
+
+        <form id="login-form" class="auth-form active">
+          <h2>Login to Your Account</h2>
+          <div class="form-group">
+            <input type="email" id="login-email" placeholder="Email address" required>
+            <span class="error-message" id="login-email-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="password" id="login-password" placeholder="Password" required minlength="6">
+            <span class="error-message" id="login-password-error"></span>
+          </div>
+          <button type="submit">Login</button>
+          <div class="auth-links">
+            <a href="#" id="forgot-password">Forgot your password?</a>
+          </div>
+        </form>
+
+        <form id="signup-form" class="auth-form">
+          <h2>Create New Account</h2>
+          <div class="form-group">
+            <input type="text" id="signup-name" placeholder="Full Name" required>
+            <span class="error-message" id="signup-name-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="email" id="signup-email" placeholder="Email address" required>
+            <span class="error-message" id="signup-email-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="password" id="signup-password" placeholder="Password" required minlength="6">
+            <span class="error-message" id="signup-password-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="signup-phone" placeholder="Phone Number" required pattern="\+?[0-9\s\-\(\)]{10,}">
+            <span class="error-message" id="signup-phone-error"></span>
+          </div>
+          <button type="submit">Create Account</button>
+          <div class="auth-links">
+            <p>By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="auth-benefits">
+    <div class="container">
+      <h2>Benefits of Creating an Account</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>🛒 Save Favorites</h3>
+          <p>Create wishlists and save your favorite jewelry pieces</p>
+        </div>
+        <div class="benefit-card">
+          <h3>📦 Order Tracking</h3>
+          <p>Track your orders and view purchase history</p>
+        </div>
+        <div class="benefit-card">
+          <h3>🎁 Exclusive Offers</h3>
+          <p>Receive special discounts and early access to new collections</p>
+        </div>
+        <div class="benefit-card">
+          <h3>⚡ Faster Checkout</h3>
+          <p>Save your details for quicker future purchases</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-container container">
+    <div class="footer-logo">
+      <img src="images/logo.png" alt="Bijouterie Boutique Logo" class="footer-logo-img">
+      <p class="footer-brand">MAIA Bijouterie Boutique</p>
+      <small>Luxury Jewelry Since 2025</small>
+    </div>
+
+    <div class="footer-links">
+      <h6>QUICK LINKS</h6>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-subscribe">
+      <h6>NEWSLETTER</h6>
+      <form id="footer-newsletter" class="newsletter-form">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="footer-contacts">
+      <h6>CONTACTS</h6>
+      <div class="footer-contacts-content">
+        <div class="footer-contacts-left">
+          <p>Kazakhstan, Astana, Astana IT University, 3rd floor, C1.1.354</p>
+          <p>Mon — Sat 10:00–20:00</p>
+        </div>
+        <div class="footer-contacts-right">
+          <p><strong>+7 700 000 00 00</strong></p>
+          <p><strong>+7 701 111 11 11</strong></p>
+          <p><strong>+7 708 464 54 09</strong></p> 
+        </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Bijouterie Boutique | Developed by <strong>A. Inkar</strong></p>
+  </div>
+</footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup - Bijouterie Boutique</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container header-flex">
+    <img src="images/logo.png" alt="Bijouterie Boutique Logo" style="width: 75px; height: 75px;">
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="auth.html" id="auth-link">Login</a></li>
+        <li><a href="profile.html" id="profile-link" style="display:none;">Profile</a></li>
+        <li><a href="#" id="logout-btn" style="display:none;">Logout</a></li>
+      </ul>
+    </nav>
+    <div class="theme-toggle">
+      <button id="theme-switcher">🌙</button>
+    </div>
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="images/video/login.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</header>
+
+<main>
+  <section class="auth-hero">
+    <div class="container">
+      <h1>Welcome Back</h1>
+      <p>Sign in to your account or create a new one to access exclusive features</p>
+    </div>
+  </section>
+
+  <section class="auth-section">
+    <div class="container">
+      <div class="auth-container">
+        <div class="auth-tabs">
+          <button class="tab-button active" data-tab="login">Login</button>
+          <button class="tab-button" data-tab="signup">Sign Up</button>
+        </div>
+
+        <form id="login-form" class="auth-form active">
+          <h2>Login to Your Account</h2>
+          <div class="form-group">
+            <input type="email" id="login-email" placeholder="Email address" required>
+            <span class="error-message" id="login-email-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="password" id="login-password" placeholder="Password" required minlength="6">
+            <span class="error-message" id="login-password-error"></span>
+          </div>
+          <button type="submit">Login</button>
+          <div class="auth-links">
+            <a href="#" id="forgot-password">Forgot your password?</a>
+          </div>
+        </form>
+
+        <form id="signup-form" class="auth-form">
+          <h2>Create New Account</h2>
+          <div class="form-group">
+            <input type="text" id="signup-name" placeholder="Full Name" required>
+            <span class="error-message" id="signup-name-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="email" id="signup-email" placeholder="Email address" required>
+            <span class="error-message" id="signup-email-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="password" id="signup-password" placeholder="Password" required minlength="6">
+            <span class="error-message" id="signup-password-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="signup-phone" placeholder="Phone Number" required pattern="\+?[0-9\s\-\(\)]{10,}">
+            <span class="error-message" id="signup-phone-error"></span>
+          </div>
+          <button type="submit">Create Account</button>
+          <div class="auth-links">
+            <p>By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="auth-benefits">
+    <div class="container">
+      <h2>Benefits of Creating an Account</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>🛒 Save Favorites</h3>
+          <p>Create wishlists and save your favorite jewelry pieces</p>
+        </div>
+        <div class="benefit-card">
+          <h3>📦 Order Tracking</h3>
+          <p>Track your orders and view purchase history</p>
+        </div>
+        <div class="benefit-card">
+          <h3>🎁 Exclusive Offers</h3>
+          <p>Receive special discounts and early access to new collections</p>
+        </div>
+        <div class="benefit-card">
+          <h3>⚡ Faster Checkout</h3>
+          <p>Save your details for quicker future purchases</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-container container">
+    <div class="footer-logo">
+      <img src="images/logo.png" alt="Bijouterie Boutique Logo" class="footer-logo-img">
+      <p class="footer-brand">MAIA Bijouterie Boutique</p>
+      <small>Luxury Jewelry Since 2025</small>
+    </div>
+
+    <div class="footer-links">
+      <h6>QUICK LINKS</h6>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-subscribe">
+      <h6>NEWSLETTER</h6>
+      <form id="footer-newsletter" class="newsletter-form">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="footer-contacts">
+      <h6>CONTACTS</h6>
+      <div class="footer-contacts-content">
+        <div class="footer-contacts-left">
+          <p>Kazakhstan, Astana, Astana IT University, 3rd floor, C1.1.354</p>
+          <p>Mon — Sat 10:00–20:00</p>
+        </div>
+        <div class="footer-contacts-right">
+          <p><strong>+7 700 000 00 00</strong></p>
+          <p><strong>+7 701 111 11 11</strong></p>
+          <p><strong>+7 708 464 54 09</strong></p> 
+        </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Bijouterie Boutique | Developed by <strong>A. Inkar</strong></p>
+  </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const API_URL = 'http://localhost:3000/api';
+
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const authLink = document.getElementById('auth-link');
+    const profileLink = document.getElementById('profile-link');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    // --- Update navbar ---
+    const updateNavbar = () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            authLink.style.display = 'none';
+            profileLink.style.display = 'block';
+            logoutBtn.style.display = 'block';
+        } else {
+            authLink.style.display = 'block';
+            profileLink.style.display = 'none';
+            logoutBtn.style.display = 'none';
+        }
+    };
+    updateNavbar();
+
+    // --- Tab switching ---
+    const tabButtons = document.querySelectorAll('.tab-button');
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.auth-form').forEach(form => form.classList.remove('active'));
+
+            button.classList.add('active');
+            const targetForm = document.getElementById(`${button.dataset.tab}-form`);
+            if (targetForm) targetForm.classList.add('active');
+        });
+    });
+
+    // --- SIGNUP ---
+    if (signupForm) {
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const userData = {
+                fullName: document.getElementById('signup-name').value,
+                email: document.getElementById('signup-email').value,
+                password: document.getElementById('signup-password').value
+            };
+
+            try {
+                const res = await fetch(`${API_URL}/auth/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userData)
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    localStorage.setItem('token', data.token || '');
+                    alert('Account created successfully!');
+                    window.location.href = 'profile.html';
+                } else {
+                    alert(data.msg || 'Registration failed.');
+                }
+            } catch (err) {
+                alert('Server error. Is backend running?');
+            }
+        });
+    }
+
+    // --- LOGIN ---
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const credentials = {
+                email: document.getElementById('login-email').value,
+                password: document.getElementById('login-password').value
+            };
+
+            try {
+                const res = await fetch(`${API_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(credentials)
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    localStorage.setItem('token', data.token);
+                    window.location.href = 'profile.html';
+                } else {
+                    alert(data.msg);
+                }
+            } catch (err) {
+                alert('Connection error. Check backend console.');
+            }
+        });
+    }
+
+    // --- LOGOUT ---
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('token');
+            updateNavbar();
+            window.location.href = 'auth.html';
+        });
+    }
+});
+</script>
+
+<script src="js/script.js"></script>
+<script src="js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile - Bijouterie Boutique</title>
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-flex">
+    <img src="images/logo.png" alt="Bijouterie Boutique Logo" style="width: 75px; height: 75px;">
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html" class="active">Profile</a></li>
+        <li><a href="auth.html" id="auth-link">Login</a></li>
+        <li><a href="#" id="logout-btn" style="display:none;">Logout</a></li>
+      </ul>
+    </nav>
+  </div>
+   <video autoplay muted loop playsinline id="bg-video">
+    <source src="images/video/profile-bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</header>
+
+<main class="container">
+  <h1>My Profile</h1>
+
+  <section id="profile-section">
+    <p><strong>Full Name:</strong> <span id="profile-name">Loading...</span></p>
+    <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
+    <p><strong>Phone:</strong> <span id="profile-phone">Loading...</span></p>
+    <p><strong>Account Type:</strong> Standard Member</p>
+  </section>
+
+  <button id="delete-account">Delete Account</button>
+  <button id="edit-profile">Update Name</button>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const API_URL = 'http://localhost:3000/api';
+    const token = localStorage.getItem('token');
+
+    const authLink = document.getElementById('auth-link');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    // --- Update Navbar ---
+    const updateNavbar = () => {
+        if (token) {
+            if (authLink) authLink.style.display = 'none';
+            if (logoutBtn) logoutBtn.style.display = 'block';
+        } else {
+            if (authLink) authLink.style.display = 'block';
+            if (logoutBtn) logoutBtn.style.display = 'none';
+        }
+    };
+    updateNavbar();
+
+    // --- Check token ---
+    if (!token) {
+        alert('Please login');
+        window.location.href = 'auth.html';
+        return;
+    }
+
+    // --- Fetch profile ---
+    try {
+        const res = await fetch(`${API_URL}/auth/profile`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        if (!res.ok) {
+            throw new Error('Unauthorized');
+        }
+
+        const user = await res.json();
+
+        document.getElementById('profile-name').textContent = user.fullName;
+        document.getElementById('profile-email').textContent = user.email;
+        document.getElementById('profile-phone').textContent = user.phone || 'N/A';
+
+    } catch (err) {
+        localStorage.removeItem('token');
+        alert('Failed to load profile. Please login.');
+        window.location.href = 'auth.html';
+    }
+
+    // --- Logout ---
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('token');
+            updateNavbar();
+            window.location.href = 'auth.html';
+        });
+    }
+
+    // --- Delete Account ---
+    const deleteBtn = document.getElementById('delete-account');
+    if (deleteBtn) {
+        deleteBtn.addEventListener('click', async () => {
+            if (!confirm('Are you sure you want to delete your account?')) return;
+
+            try {
+                const res = await fetch(`${API_URL}/auth/delete`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!res.ok) throw new Error('Failed to delete account');
+
+                localStorage.removeItem('token');
+                alert('Account deleted successfully');
+                window.location.href = 'auth.html';
+            } catch (err) {
+                alert('Error deleting account. Check backend.');
+            }
+        });
+    }
+    const editBtn = document.getElementById('edit-profile');
+
+if (editBtn) {
+    editBtn.addEventListener('click', async () => {
+        const newName = prompt("Enter your new full name:");
+        if (!newName) return;
+
+        try {
+            const res = await fetch(`${API_URL}/auth/profile`, {
+                method: 'PUT',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` 
+                },
+                body: JSON.stringify({ fullName: newName })
+            });
+
+            if (res.ok) {
+                alert('Profile updated!');
+                location.reload(); // Refresh to see the change
+            } else {
+                alert('Update failed.');
+            }
+        } catch (err) {
+            console.error('Update error:', err);
+        }
+    });
+}
+});
+</script>
+</body>
+</html>

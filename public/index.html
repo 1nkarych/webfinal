@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bijouterie Boutique - Luxury Jewelry</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+(function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
+</script>
+</head>
+<body>
+<header class="header">
+   <div class="container header-flex">
+    <img src="images/logo.png" alt="Bijouterie Boutique Logo" style="width: 75px; height: 75px;">
+   <nav>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="auth.html" id="auth-link">Login</a></li>
+        <li><a href="profile.html" id="profile-link" style="display:none;">Profile</a></li>
+        <li><a href="#" id="logout-btn" style="display:none;">Logout</a></li>
+      </ul>
+    </nav>
+    <div class="theme-toggle">
+      <button id="theme-switcher">🌙</button>
+    </div>
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="images/video/bgvideo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</header>
+
+<main>
+ <section id="rollers" class="carousel-section1">
+  <h2>New Collection</h2>
+  <div class="carousel-container">
+    <button class="carousel-arrow left" onclick="moveSlide(-1, 'carousel-track')">
+      &#10094;
+    </button>
+    <div class="carousel-track" id="carousel-track">
+      <div class="carousel-card">
+        <img src="images/Cl1.jpg" alt="Aurora Emerald Pendant">
+        <h5>Aurora Emerald Pendant</h5>
+        <p>35 300 000 kzt</p>
+      </div>
+      <div class="carousel-card">
+        <img src="images/cl2.jpg" alt="Solara Gold Lariat">
+        <h5>Solara Gold Lariat</h5>
+        <p>115 500 000 kzt</p>
+      </div>
+      <div class="carousel-card">
+        <img src="images/cl3.jpg" alt="Ethereal Blossom Necklace">
+        <h5>Ethereal Blossom Necklace</h5>
+        <p>86 000 000 kzt</p>
+    </div>
+    <button class="carousel-arrow right" onclick="moveSlide(1, 'carousel-track')">
+      &#10095;
+    </button>
+  </div>
+  <div class="carousel-indicators" id="carousel-indicators"></div>
+</section>
+<section class="aboutus-section">
+  <div class="aboutus-container">
+    <div class="aboutus-text">
+      <h1>About MAIA</h1>
+      <p>
+        At <strong>MAIA</strong>, we believe that jewelry is not just an accessory — it’s an expression of elegance, individuality, and timeless beauty.
+        Our artisans combine traditional craftsmanship with modern design to create exquisite pieces that celebrate your story.
+      </p>
+      <p>
+        Everyone deserves love, but <i>you and me</i> we deserve diamonds.
+      </p>
+    </div>
+
+    <div class="aboutus-image">
+      <img src="images/about-us.jpg" alt="MAIA Jewelry Workshop">
+    </div>
+  </div>
+</section>
+
+<section id="services" class="promo-banner">
+  <div class="promo-content">
+    <h1>Save 20%<br>on Selected Jewelry</h1>
+    <p>Offer valid until the end of the month</p>
+    <a href="contact.html" class="promo-button">Message us</a>
+  </div>
+</section>
+
+<section id="portfolio" class="works-section">
+  <h2>Our Creations</h2>
+  <div class="works-gallery">
+    <div class="work-item">
+      <img src="images/work1.jpg" alt="Custom engagement ring with brilliant cut diamond">
+    </div>
+    <div class="work-item">
+      <img src="images/work2.jpg" alt="Vintage inspired necklace with sapphire centerpiece">
+    </div>
+    <div class="work-item">
+      <img src="images/work3.jpg" alt="Modern geometric earrings with mixed metals">
+    </div>
+    <div class="work-item">
+      <img src="images/work4.jpg" alt="Art deco bracelet with emerald and diamond pattern">
+    </div>
+    <div class="work-item">
+      <img src="images/work5.jpg" alt="Art deco bracelet with emerald and diamond pattern">
+    </div>
+    <div class="work-item">
+      <img src="images/work6.jpg" alt="Art deco bracelet with emerald and diamond pattern">
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="reviews-section1">
+  <h2>Customer Reviews</h2>
+    <div class="reviews-track" id="reviews-track">
+      <div class="reviews-card">
+        <h3>Arista Hotels</h3>
+        <p>"Elegant, durable pieces that elevate our guest experience. Timely delivery and flawless finishing."</p>
+      </div>
+      <div class="reviews-card">
+        <h3>Vela Fashion Group</h3>
+        <p>"Custom pendants for our campaign looked stunning on set. Great communication and craftsmanship."</p>
+      </div>
+      <div class="reviews-card">
+        <h3>Nordic Events Co.</h3>
+        <p>"Corporate gifts were thoughtfully packaged and received rave reviews. We'll reorder next quarter."</p>
+      </div>
+    </div>
+</section>
+
+<section class="info-section">
+  <div class="info-container">
+    <div class="info-video">
+      <video autoplay muted loop playsinline id="how-video">
+    <source src="images/video/how.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+    </div>
+    <div class="info-text">
+      <h2>How We Craft and Deliver</h2>
+      <p>Every order is carefully packaged and delivered on time, with guidance on care to keep your jewelry shining.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contacts" class="questions-banner">
+  <div class="questions-content">
+    <h1>Have any questions?</h1>
+    <p>Leave a request! Our manager will contact you with a tailored offer.</p>
+    <a href="contact.html" class="questions-button">Contact Us</a>
+  </div>
+</section>
+</main>
+
+<section id="location" class="container" style="padding: 60px 0;">
+    <h2 style="text-align: center; margin-bottom: 30px;">Our Boutique Location</h2>
+    <div id="map" style="width: 100%; height: 450px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
+</section>
+<footer class="footer">
+  <div class="footer-container container">
+    <div class="footer-logo">
+      <img src="images/logo.png" alt="Bijouterie Boutique Logo" class="footer-logo-img">
+      <p class="footer-brand">MAIA Bijouterie Boutique</p>
+      <small>Luxury Jewelry Since 2025</small>
+    </div>
+
+    <div class="footer-links">
+      <h6>QUICK LINKS</h6>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-subscribe">
+      <h6>NEWSLETTER</h6>
+      <form id="footer-newsletter" class="newsletter-form">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="footer-contacts">
+      <h6>CONTACTS</h6>
+      <div class="footer-contacts-content">
+        <div class="footer-contacts-left">
+          <p>Kazakhstan, Astana, Astana IT University</p>
+          <p>Mon — Sat 10:00–20:00</p>
+        </div>
+        <div class="footer-contacts-right">
+          <p><strong>+7 700 000 00 00</strong></p>
+          <p><strong>+7 701 111 11 11</strong></p>
+          <p><strong>+7 708 464 54 09</strong></p>
+        </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Bijouterie Boutique | Developed by <strong>A. Inkar</strong></p>
+  </div>
+</footer>
+<script src="js/script.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/auth.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqA2efZL6-H_c4zAi_pWaNIZvr8QldI2o&callback=initMap" async defer></script>
+
+<script>
+    async function loadGoogleMaps() {
+        try {
+            // 1. Fetch the API key from your backend
+            const response = await fetch('http://localhost:3000/api/config/google-maps');
+            const data = await response.json();
+            const apiKey = data.key;
+
+            // 2. Create the script element dynamically
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        } catch (err) {
+            console.error("Could not load Google Maps API key:", err);
+        }
+    }
+
+    // This is the function Google Maps calls once it loads
+    function initMap() {
+        const location = { lat: 51.169392, lng: 71.449074 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 16,
+            center: location,
+        });
+        new google.maps.Marker({
+            position: location,
+            map: map,
+            title: "MAIA Bijouterie"
+        });
+    }
+
+    // Start the process
+    window.onload = loadGoogleMaps;
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# MAIA Bijouterie Boutique - Luxury Jewelry Catalog
+
+## Project Overview
+MAIA Bijouterie Boutique is a full-stack web application designed for a luxury jewelry store. It allows users to browse a high-end catalog, search for specific pieces by name or category, and filter by price. The backend is built with a modular architecture to handle user authentication and product management.
+
+* **A. Inkar** 
+##  Tech Stack
+* **Frontend:** HTML5, CSS3 , JavaScript 
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB
+* **Authentication:** JWT (JSON Web Tokens) & Bcrypt
+
+Method,           Endpoint,              Description,                  Access
+POST,           /api/auth/register,      Register a new user,          Public
+POST,          /api/auth/login,          Login & receive JWT,          Public
+GET,         /api/auth/profile,         View user profile,           Private (JWT)
+ITS LOGIN RESOURCES
+
+Method,           Endpoint,               Description,                     Access
+GET,          /api/products,            Get all jewelry items,             Public
+GET,         /api/products/search,      Search & Filter items,             Public
+POST,        /api/products,             Add jewelry to catalog,            Public 
+DELETE,      /api/products/:id,         Remove jewelry,                    Private (JWT)

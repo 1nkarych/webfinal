@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jewelry Catalog - Bijouterie Boutique</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-flex">
+    <img src="images/logo.png" alt="Logo" style="width: 75px; height: 75px;">
+    <nav>
+      <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/catalog" class="active">Catalog</a></li>
+        <li><a href="/profile" id="profile-link">Profile</a></li>
+        <li><a href="/auth" id="auth-link">Login</a></li>
+        <li><a href="#" id="logout-btn" style="display:none;">Logout</a></li>
+      </ul>
+    </nav>
+  </div>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="images/video/catalog.mp4" type="video/mp4">
+  </video>
+</header>
+
+<main class="container">
+  <section class="catalog-header" style="text-align: center; padding: 100px 0; color: white;">
+    <h1>Our Jewelry Collection</h1>
+    <p>Exquisite pieces for your unique style</p>
+  </section>
+
+  <section class="search-section" style="background: rgba(0,0,0,0.5); padding: 30px; border-radius: 15px;">
+    <div class="search-bar" style="display: flex; gap: 10px; margin-bottom: 20px;">
+      <input type="text" id="search-input" placeholder="Search by name..." style="flex: 1; padding: 10px; border-radius: 5px; border: none;">
+      <button id="search-btn" style="background: #d4af37; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">🔍 Search</button>
+    </div>
+
+    <div class="filters" style="display: flex; gap: 20px; color: white;">
+      <select id="category-filter" style="padding: 8px; border-radius: 5px;">
+        <option value="">All Categories</option>
+        <option value="Necklace">Necklaces</option>
+        <option value="Bracelet">Bracelets</option>
+        <option value="Earrings">Earrings</option>
+      </select>
+
+      <div>
+        <span>Max Price: </span>
+        <input type="range" id="price-range" min="0" max="100000000" step="1000000" value="100000000">
+        <span id="price-val">100M</span> KZT
+      </div>
+    </div>
+  </section>
+
+  <section class="catalog-grid">
+    <div id="products-container">
+      </div>
+    <p id="no-results" style="display:none;">No matching products found 😢</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container" style="text-align: center; color: white; padding: 50px 0;">
+    <p>© 2025 Bijouterie Boutique</p>
+  </div>
+</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/search.js"></script>
+<script>
+  // Quick UI logic for the price range display
+  const range = document.getElementById('price-range');
+  const val = document.getElementById('price-val');
+  range.addEventListener('input', () => {
+    val.textContent = (range.value / 1000000).toFixed(0) + "M";
+  });
+</script>
+
+</body>
+</html>
